@@ -16,7 +16,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Make scripts executable
-RUN chmod +x scripts/*.sh scripts/*.py
+RUN chmod +x scripts/*.py
+# RUN chmod +x scripts/*.sh scripts/*.py
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
