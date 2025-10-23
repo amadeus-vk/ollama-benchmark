@@ -4,10 +4,10 @@ services:
   ollama-benchmark:
     build: .
     container_name: ollama-benchmark
-    environment:
-      - OLLAMA_HOST=host.docker.internal:11434
-      - BENCHMARK_ITERATIONS=3
-      - BENCHMARK_MODEL=llama2:7b
+    # environment:
+    #   - OLLAMA_HOST=host.docker.internal:11434
+    #   - BENCHMARK_ITERATIONS=3
+    #   - BENCHMARK_MODEL=llama2:7b
     volumes:
       - ./results:/app/results
     # No GPU access needed - we're using API to existing Ollama instance
