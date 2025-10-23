@@ -1,4 +1,4 @@
-version: '3.10'
+version: '4.0'
 
 services:
   ollama-benchmark:
@@ -28,6 +28,13 @@ services:
     devices:
       - "/dev/kfd:/dev/kfd"
       - "/dev/dri:/dev/dri"
+    group_add:
+      - "44"   # video group
+      - "107"  # render group
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
     deploy:
       resources:
         reservations:
