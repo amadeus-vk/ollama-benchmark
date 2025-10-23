@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.10'
 
 services:
   ollama-benchmark:
@@ -24,7 +24,10 @@ services:
     ports:
       - "11434:11434"
     volumes:
-      - ollama:/root/.ollama
+      - ollama:/root/.ollama    
+    devices:
+      - "/dev/kfd:/dev/kfd"
+      - "/dev/dri:/dev/dri"
     deploy:
       resources:
         reservations:
@@ -55,4 +58,3 @@ volumes:
 networks:
   agent_network:
     external: true
-    
