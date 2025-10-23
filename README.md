@@ -16,6 +16,6 @@ Benchmark container for comparing Ollama performance between CPU and AMD GPU (Vu
 2. Clone and deploy:
 
 ```bash
-git clone <your-repo>
+git clone amadeus-vk/ollama-benchmark
 cd ollama-amd-benchmark
 docker-compose up -d
