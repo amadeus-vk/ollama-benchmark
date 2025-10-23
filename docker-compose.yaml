@@ -15,6 +15,25 @@ services:
     networks: 
     - agent_network
 
+  # ROCm-enabled Ollama instance
+  ollama-rocm:
+    image: ollama/ollama:latest
+    container_name: ollama-rocm
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: rocm
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
   # Optional: CPU-only Ollama instance for comparison
   ollama-cpu:
     image: ollama/ollama:latest
