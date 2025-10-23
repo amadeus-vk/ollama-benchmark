@@ -1,4 +1,4 @@
-version: '4.2'
+version: '4.3'
 
 services:
   ollama-benchmark:
@@ -18,7 +18,7 @@ services:
   # ROCm-enabled Ollama instance
   ollama-rocm:
     image: ollama/ollama:latest
-    container_name: ollama-rocm
+    container_name: ollama
     environment:
       - OLLAMA_HOST=0.0.0.0
     ports:
