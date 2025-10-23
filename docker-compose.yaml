@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   ollama-benchmark:
@@ -55,3 +55,4 @@ volumes:
 networks:
   agent_network:
     external: true
+    

@@ -1,4 +1,5 @@
 #!/bin/bash
+version='0.0.2'
 
 # Build and deploy to Portainer
 docker-compose build

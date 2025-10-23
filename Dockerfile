@@ -1,4 +1,5 @@
 FROM python:3.11-slim
+# version='0.0.2'
 
 WORKDIR /app
 
