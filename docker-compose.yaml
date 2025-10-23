@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  ollama-benchmark:
+    build: .
+    container_name: ollama-benchmark
+    environment:
+      - OLLAMA_HOST=host.docker.internal:11434
+      - BENCHMARK_ITERATIONS=3
+      - BENCHMARK_MODEL=llama2:7b
+    volumes:
+      - ./results:/app/results
+    # No GPU access needed - we're using API to existing Ollama instance
+    network_mode: host
+    restart: no
+
+  # Optional: CPU-only Ollama instance for comparison
+  ollama-cpu:
+    image: ollama/ollama:latest
+    container_name: ollama-cpu-comparison
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_GPUS=0  # Force CPU-only
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama:
