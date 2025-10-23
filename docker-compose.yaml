@@ -12,7 +12,7 @@ services:
       - ./results:/app/results
     # No GPU access needed - we're using API to existing Ollama instance
     restart: no
-    network: agent_network
+    networks: agent_network
 
   # Optional: CPU-only Ollama instance for comparison
   ollama-cpu:
@@ -26,7 +26,7 @@ services:
     volumes:
       - ollama:/root/.ollama
     restart: unless-stopped
-    network: agent_network
+    networks: agent_network
 
 volumes:
   ollama:
