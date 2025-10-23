@@ -1,4 +1,4 @@
-version: '4.0'
+version: '4.1'
 
 services:
   ollama-benchmark:
@@ -35,13 +35,6 @@ services:
       - SYS_PTRACE
     security_opt:
       - seccomp=unconfined
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: rocm
-              count: all
-              capabilities: [gpu]
     restart: unless-stopped
 
   # Optional: CPU-only Ollama instance for comparison
