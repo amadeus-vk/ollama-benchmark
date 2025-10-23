@@ -1,4 +1,4 @@
-version: '4.3'
+version: '4.4'
 
 services:
   ollama-benchmark:
@@ -36,6 +36,8 @@ services:
     security_opt:
       - seccomp=unconfined
     restart: unless-stopped
+    networks: 
+    - agent_network
 
   # Optional: CPU-only Ollama instance for comparison
   ollama-cpu:
